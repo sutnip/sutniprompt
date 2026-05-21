@@ -1,5 +1,7 @@
 # SutniPrompt
 
+![GitHub release (include pre-releases)](https://img.shields.io/github/v/release/sutnip/sutniprompt?include_prereleases&color=blue) ![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg) ![Support: Claude](https://img.shields.io/badge/Support-Claude-D97757?logo=anthropic&logoColor=white) ![Support: Gemini](https://img.shields.io/badge/Support-Gemini-1A73E8?logo=google-gemini&logoColor=white) ![Support: ChatGPT](https://img.shields.io/badge/Support-ChatGPT-74aa9c?logo=openai&logoColor=white)
+
 ## Overview
 SutniPrompt is a system prompt engineered to transform a Large Language Model (LLM) into an analytical, intellectual partner. It eliminates evasive responses, pleasantries, and standard AI disclaimers typical of commercial virtual assistants, imposing a rigorous logical structure, chronological grounding, and deterministic behavior.
 
