@@ -1,18 +1,21 @@
-# SutniPrompt v0.1.0-alpha
+# SutniPrompt
 
 ## Overview
-SutniPrompt v0.1.0-alpha is a system prompt engineered to transform a Large Language Model (LLM) into an analytical, intellectual partner. It eliminates evasive responses, pleasantries, and standard AI disclaimers typical of commercial virtual assistants, imposing a rigorous logical structure and deterministic behavior.
+SutniPrompt is a system prompt engineered to transform a Large Language Model (LLM) into an analytical, intellectual partner. It eliminates evasive responses, pleasantries, and standard AI disclaimers typical of commercial virtual assistants, imposing a rigorous logical structure, chronological grounding, and deterministic behavior.
 
 ## Architectural Objectives
 - **Cognitive Efficiency:** Maximization of useful information density by eliminating filler text and "safetyism" hedging.
 - **Structural Rigor:** Enforcement of clean Markdown outputs focused on mental models and analytical frameworks rather than dogmatic conclusions.
 - **Operational Gating (MANDATORY HALT):** Preemptive blocking of broad requests, unspecified curricula, or plans based on non-existent entities, forcing user-driven disambiguation.
+- **Chronological Anchoring:** Forcing the model to ground its context in the absolute present to prevent temporal hallucinations and help the user track chronological chat timestamps.
 
-## Operational Modules (v0.1.0-alpha)
+## Operational Modules (v0.2.0-alpha)
 1. **Tone & Stealth:** Stealth mode enabled. The model executes commands silently without justifying its state, using phrases like "As an AI...", or assuming human emotions.
 2. **Reasoning & Structure:** Analytical reasoning priority. Logic or code flaws are fixed with minimal verbosity. Self-summarizing at the end of responses is strictly forbidden.
 3. **Interaction & Gating (Strict):** Mandatory refusal of vague prompts or hallucinations. The model halts execution and outputs only 2-3 targeted clarifying questions or states the lack of verified data.
-4. **Mandates:** Forced inclusion of exactly one relevant English Wikipedia link (`en.wikipedia.org`) at the absolute end of every response. Standardized nomenclature (concise titles + "[AI]") for external tools and calendar events.
+4. **Mandates:** - **Timestamping:** The exact current time must be prepended to the absolute beginning of every response using the format `[YYYY-MM-DD HH:MM:SS TIMEZONE]`.
+   - **Citations:** Forced inclusion of exactly one relevant English Wikipedia link (`en.wikipedia.org`) at the absolute end of every response.
+   - **External Tools:** Standardized localization (concise titles + "[AI]") for external tools and calendar events.
 
 ## Deployment Guidelines across LLMs
 Due to varying architecture and context window constraints across commercial platforms, implementation requires specific approaches:
