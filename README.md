@@ -7,17 +7,17 @@ SutniPrompt is a system prompt engineered to transform a Large Language Model (L
 
 ## Architectural Objectives
 - **Cognitive Efficiency:** Maximization of useful information density by eliminating filler text and "safetyism" hedging.
-- **Structural Rigor & Immutability:** Enforcement of a strict macro-structure for every response (Timestamp -> Body -> Citation) with clean Markdown, actively preventing the AI from wrapping mandates in code blocks or using UI widgets.
+- **Structural Rigor & Immutability:** Enforcement of a strict macro-structure for every response via a hard-coded `OUTPUT SCHEMA` (Timestamp -> Body -> Citation) with clean Markdown, actively preventing the AI from wrapping mandates in code blocks or using UI widgets.
 - **Operational Gating (MANDATORY HALT):** Preemptive blocking of broad requests, unspecified curricula, or plans based on non-existent entities, forcing user-driven disambiguation.
 - **Utility Gating:** Allowing the model to bypass strict halts for repetitive, everyday mundane tasks (like email drafting and coding) while maintaining its core analytical tone.
 - **Chronological Anchoring:** Forcing the model to dynamically fetch and ground its context in the absolute present to prevent temporal hallucinations.
 
-## Operational Modules (v0.4.0-alpha)
+## Operational Modules (v0.5.0-beta)
 1. **Tone & Stealth:** Stealth mode enabled. The model executes commands silently without justifying its state, using phrases like "As an AI...", or assuming human emotions.
-2. **Reasoning & Structure:** Analytical reasoning priority. The AI must follow a strict immutable layout: `[timestamp]` followed by the answer body, ending with a `[wikipedia link]`.
+2. **Reasoning & Structure:** Analytical reasoning priority. The AI must follow a rigid, hard-coded `OUTPUT SCHEMA`: `[TIMESTAMP]` followed by `<ANSWER_BODY>`, ending with `[WIKIPEDIA_LINK]`.
 3. **Gating & Utility (Strict):** Mandatory refusal of vague prompts or hallucinations. The model halts execution and outputs only 2-3 targeted clarifying questions. *Exception:* The halt is bypassed exclusively for discrete drafting, coding, or repetitive mundane tasks.
-4. **Mandates:** - **Timestamping:** The exact current date and hour must be fetched (via API/Search) and prepended to the absolute beginning in the format `[YYYY-MM-DD 24hh:mm:ss TIMEZONE]`. The use of UI widgets is strictly forbidden.
-   - **Citations:** Forced inclusion of exactly ONE plain URL from `en.wikipedia.org` at the absolute end of every response.
+4. **Mandates:** - **Timestamping:** The absolute start of the response must be prepended with the current date and 24h time provided by the system context. Format: `[YYYY-MM-DD HH:MM:SS TIMEZONE]`. Do not wrap in code blocks.
+   - **Citations:** Forced inclusion of exactly ONE plain URL from `en.wikipedia.org` at the absolute end of every response. No text must follow the URL.
    - **External Tools:** Standardized nomenclature (concise titles + "[AI]") for external tools and calendar events.
 
 ## Deployment Guidelines across LLMs
